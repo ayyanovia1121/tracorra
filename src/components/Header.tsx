@@ -3,7 +3,7 @@ import { Button } from "./ui/button";
 import Image from "next/image";
 import { UserButton, useUser } from "@clerk/nextjs";
 import Link from "next/link";
-import { ArrowUpRight, ArrowUpRightFromSquare } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 
 const Header = () => {
   const { user, isSignedIn } = useUser();
@@ -15,13 +15,17 @@ const Header = () => {
         <span className="text-xl font-bold text-primary">Tracorra.ai</span>
       </div>
       {isSignedIn ? (
-        <UserButton />
-      ) : (
         <div className="flex items-center space-x-2">
           <Link href="/dashboard">
-            <Button variant={"outline"} className="rounded-full">Dashboard</Button>
+            <Button className="rounded-full">
+              Dashboard
+            </Button>
           </Link>
-          <Link href="/dashboard">
+          <UserButton  />
+        </div>
+      ) : (
+        <div className="flex items-center space-x-2">
+          <Link href="/sign-in">
             <Button className="rounded-full">
               Get Started
               <ArrowUpRight className="mr-2" />
