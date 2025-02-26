@@ -1,17 +1,12 @@
+'use client'
 import React from "react";
-import { SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
-import { SignInButton, SignUpButton } from "@clerk/nextjs";
+import { useUser } from "@clerk/nextjs";
 const DashboardPage = () => {
+  const { user } = useUser();
   return (
-    <div>
-      <SignedOut>
-        <SignInButton />
-        <SignUpButton />
-      </SignedOut>
-      
-      <SignedIn>
-        <UserButton />
-      </SignedIn>
+    <div className="p-8">
+      <h2 className="text-2xl font-bold">Hi, {user?.fullName}</h2>
+      <p className="text-foreground">Welcome to your dashboard!, Lets manage your money</p>
     </div>
   );
 };
