@@ -1,9 +1,17 @@
-import React from 'react'
+import React from "react";
+import AuthLayout from "../../components/layouts/AuthLayout";
 
 const SignIn = () => {
   return (
-    <div>SignIn</div>
-  )
-}
+    <AuthLayout>
+      <div className="lg:w-[70%] h-3/4 md:h-full flex flex-col justify-center">
+        <h3 className="text-xl font-semibold text-black">Welcome Back</h3>
+        <p className="text-xs text-slate-700 mt-[5px] mb-6">
+          Please Enter your details to sign in to your account
+        </p>
+      </div>
+    </AuthLayout>
+  );
+};
 
-export default SignIn
+export default SignIn;
